@@ -79,12 +79,9 @@ with st.sidebar:
         help="예: 005930 000660 035420",
     )
 
-    dart_key = st.text_input(
-        "DART API 키 (선택)",
-        type="password",
-        help="https://opendart.fss.or.kr/ 에서 발급. 없으면 C/A는 중립 처리",
-        value=os.environ.get("DART_API_KEY", ""),
-    )
+    # 키 고정 (사이드바에 입력창 안 나옴)
+DART_API_KEY = "2a36b26b39fff9c0cad83a71452cfb6ae0a6a9d3"
+dart_key = DART_API_KEY
 
     lookback = st.slider("조회 기간 (일)", 200, 600, 450, 50)
 
