@@ -59,7 +59,7 @@ st.markdown("""
 # ─────────────────────────────────────────────────────────────
 # 사이드바
 # ─────────────────────────────────────────────────────────────
-with st.sidebar:    2a36b26b39fff9c0cad83a71452cfb6ae0a6a9d3
+with st.sidebar:
     st.title("CANSLIM 한국")
     st.caption("실전 종목 분석 대시보드")
 
@@ -79,9 +79,15 @@ with st.sidebar:    2a36b26b39fff9c0cad83a71452cfb6ae0a6a9d3
         help="예: 005930 000660 035420",
     )
 
-    # 키 고정 (사이드바에 입력창 안 나옴)
-DART_API_KEY = "2a36b26b39fff9c0cad83a71452cfb6ae0a6a9d3"
-dart_key = DART_API_KEY
+    # ★★★ 여기에 키를 넣으세요 (따옴표 필수!)
+    DART_API_KEY = "2a36b26b39fff9c0cad83a71452cfb6ae0a6a9d3"
+
+    dart_key = st.text_input(
+        "DART API 키 (선택)",
+        type="password",
+        help="https://opendart.fss.or.kr/ 에서 발급",
+        value=DART_API_KEY,
+    )
 
     lookback = st.slider("조회 기간 (일)", 200, 600, 450, 50)
 
@@ -89,7 +95,6 @@ dart_key = DART_API_KEY
 
     st.divider()
     st.caption("결과 JSON 다운로드 / 관심종목 저장도 가능합니다.")
-
 
 # ─────────────────────────────────────────────────────────────
 # 세션 상태
